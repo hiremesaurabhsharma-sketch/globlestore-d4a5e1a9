@@ -1,0 +1,290 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.129 0.042 264.695);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+#lovable-badge {
+  display: none !important;
+}
+
+/* Brand accent driven by the user-selected "Style" (StyleProvider). */
+:root {
+  --brand: #1D6FEB;
+  --brand-2: #5AB0FF;
+  --brand-foreground: #ffffff;
+  --brand-gradient: linear-gradient(135deg, var(--brand), var(--brand-2));
+
+  /* Header surface tokens (light theme defaults) — subtle glass */
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --header-fg: #0F0F0F;
+  --header-hover: rgba(0, 0, 0, 0.06);
+  --header-surface: rgba(0, 0, 0, 0.05);
+  --header-surface-strong: rgba(0, 0, 0, 0.09);
+  --header-border: rgba(0, 0, 0, 0.08);
+  --header-popover-bg: rgba(255, 255, 255, 0.9);
+  --header-popover-fg: #0F0F0F;
+  --header-muted-fg: rgba(0, 0, 0, 0.6);
+}
+.dark {
+  --header-bg: rgba(15, 15, 15, 0.82);
+  --header-fg: #ffffff;
+  --header-hover: rgba(255, 255, 255, 0.1);
+  --header-surface: rgba(255, 255, 255, 0.08);
+  --header-surface-strong: rgba(255, 255, 255, 0.15);
+  --header-border: rgba(255, 255, 255, 0.1);
+  --header-popover-bg: rgba(25, 25, 25, 0.9);
+  --header-popover-fg: #ffffff;
+  --header-muted-fg: rgba(255, 255, 255, 0.6);
+}
+/* Single fixed brand accent — no per-user color switching. */
+
+/* Reusable header primitives — glassmorphism surfaces */
+.klaro-header {
+  background-color: var(--header-bg);
+  color: var(--header-fg);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--header-border);
+}
+.klaro-header .hbtn { color: var(--header-fg); }
+.klaro-header .hbtn:hover { background-color: var(--header-hover); }
+.klaro-header .hchip { background-color: var(--header-surface); color: var(--header-fg); }
+.klaro-header .hchip:hover { background-color: var(--header-surface-strong); }
+.klaro-header .hpop {
+  background-color: var(--header-popover-bg);
+  color: var(--header-popover-fg);
+  border: 1px solid var(--header-border);
+  backdrop-filter: blur(24px) saturate(180%);
+}
+.klaro-header .hpop-item:hover { background-color: var(--header-hover); }
+.klaro-header .hborder { border-color: var(--header-border); }
+.klaro-header .hmuted { color: var(--header-muted-fg); }
+.klaro-header .hplaceholder::placeholder { color: var(--header-muted-fg); }
+
+
+
+
+/* Disable pinch/double-tap zoom on the whole app (mobile) */
+html, body { touch-action: pan-x pan-y; }
+
+/* ==============================================
+   Auth page — Apple-inspired minimal glassmorphism
+   ============================================== */
+.auth-shell { color: var(--foreground); }
+.auth-bg {
+  background:
+    radial-gradient(1200px 600px at 15% 0%, color-mix(in oklab, var(--brand) 18%, transparent), transparent 60%),
+    radial-gradient(1000px 600px at 100% 100%, color-mix(in oklab, var(--brand) 14%, transparent), transparent 55%),
+    var(--background);
+}
+.auth-blob-a { background: radial-gradient(closest-side, color-mix(in oklab, var(--brand) 55%, transparent), transparent); }
+.auth-blob-b { background: radial-gradient(closest-side, color-mix(in oklab, var(--brand) 45%, transparent), transparent); }
+
+.auth-card {
+  background: color-mix(in oklab, var(--card) 82%, transparent);
+  border: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  box-shadow:
+    0 1px 0 color-mix(in oklab, #fff 6%, transparent) inset,
+    0 30px 80px -30px color-mix(in oklab, #000 55%, transparent);
+}
+.auth-muted { color: color-mix(in oklab, var(--foreground) 55%, transparent); }
+.auth-divider { background: color-mix(in oklab, var(--foreground) 12%, transparent); }
+.auth-link { color: var(--brand); }
+.auth-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.auth-field {
+  background: color-mix(in oklab, var(--foreground) 5%, transparent);
+  border: 1px solid color-mix(in oklab, var(--foreground) 10%, transparent);
+  transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+}
+.auth-field:focus-within {
+  border-color: color-mix(in oklab, var(--brand) 65%, transparent);
+  background: color-mix(in oklab, var(--foreground) 7%, transparent);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--brand) 18%, transparent);
+}
+.auth-icon { color: color-mix(in oklab, var(--foreground) 55%, transparent); }
+.auth-eye { color: color-mix(in oklab, var(--foreground) 60%, transparent); }
+.auth-eye:hover { background: color-mix(in oklab, var(--foreground) 8%, transparent); }
+.auth-input { color: var(--foreground); }
+.auth-input::placeholder { color: color-mix(in oklab, var(--foreground) 45%, transparent); }
+
+.auth-primary {
+  background-image: var(--brand-gradient);
+  color: var(--brand-foreground);
+  box-shadow:
+    0 1px 0 color-mix(in oklab, #fff 25%, transparent) inset,
+    0 10px 30px -10px color-mix(in oklab, var(--brand) 65%, transparent);
+}
+.auth-primary:hover { filter: brightness(1.05); }
+.auth-primary:active { transform: translateY(1px); }
+
+.auth-google {
+  background: color-mix(in oklab, var(--foreground) 6%, transparent);
+  color: var(--foreground);
+  border: 1px solid color-mix(in oklab, var(--foreground) 12%, transparent);
+}
+.auth-google:hover { background: color-mix(in oklab, var(--foreground) 10%, transparent); }
+
+.auth-back {
+  color: color-mix(in oklab, var(--foreground) 75%, transparent);
+  background: color-mix(in oklab, var(--foreground) 5%, transparent);
+  border: 1px solid color-mix(in oklab, var(--foreground) 8%, transparent);
+}
+.auth-back:hover { background: color-mix(in oklab, var(--foreground) 9%, transparent); }
+
+.auth-error {
+  background: color-mix(in oklab, #ef4444 12%, transparent);
+  color: #fecaca;
+  border: 1px solid color-mix(in oklab, #ef4444 30%, transparent);
+}
+.auth-success {
+  background: color-mix(in oklab, #10b981 12%, transparent);
+  color: #a7f3d0;
+  border: 1px solid color-mix(in oklab, #10b981 30%, transparent);
+}
+
+@keyframes spark-shine {
+  0%   { background-position: 200% 50%; }
+  100% { background-position: -100% 50%; }
+}
