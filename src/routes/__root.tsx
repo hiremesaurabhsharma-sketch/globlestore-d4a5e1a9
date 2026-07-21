@@ -9,7 +9,6 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import { toast, Toaster } from "sonner";
-import { Briefcase } from "lucide-react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -180,30 +179,6 @@ function RootComponent() {
 
 
 
-
-  // Demo: naya vacancy popup — page load ke ~25 sec baad ek toast dikhega
-  // taaki UI ka feel mile. Real pipeline connect hone pe ye Supabase realtime
-  // se driven hoga (vacancies table pe insert -> toast).
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const KEY = "spark:jobs-demo-toast";
-    if (sessionStorage.getItem(KEY)) return;
-    const t = setTimeout(() => {
-      sessionStorage.setItem(KEY, "1");
-      toast("🔔 Nayi Vacancy Aayi!", {
-        description: "SSC CGL 2026 — 17,727 posts • Last date: 24 Aug",
-        duration: 8000,
-        icon: <Briefcase className="h-5 w-5" style={{ color: "var(--brand)" }} />,
-        action: {
-          label: "View",
-          onClick: () => {
-            window.location.href = "/jobs";
-          },
-        },
-      });
-    }, 25_000);
-    return () => clearTimeout(t);
-  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
